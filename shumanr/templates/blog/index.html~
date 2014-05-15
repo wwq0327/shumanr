@@ -1,0 +1,12 @@
+{% extends "blog/sub_base.html" %}
+
+{% block title %}博客{% endblock %}
+
+{% block blog_main %}
+
+{% endblock %}
+
+{% block blog_right %}
+
+{% endblock %}
+

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django settings for shumanr project.
 
@@ -38,6 +39,19 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 )
 
+##
+
+INSTALLED_APPS += (
+    'south',
+    'social_auth',
+)
+
+## apps
+
+INSTALLED_APPS += (
+    'blog',
+)
+
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -65,9 +79,9 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-cn'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -80,3 +94,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+
+# 静态文件目录
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
+
+## media
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+# 模版文件目录
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, "templates"),
+)	
+
