@@ -8,7 +8,7 @@ from django.utils.encoding import force_unicode
 register = template.Library()
 
 @register.filter(is_safe=True)
-#@stringfilter
+@stringfilter
 def markdown2(value):
     try:
         import markdown2

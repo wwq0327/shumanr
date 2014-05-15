@@ -3,6 +3,7 @@ South==0.8.4
 django-social-auth==0.7.28
 httplib2==0.9
 ipython==2.0.0
+linaro-django-pagination==2.0.2
 markdown2==2.2.1
 oauth2==1.5.211
 python-openid==2.2.5
