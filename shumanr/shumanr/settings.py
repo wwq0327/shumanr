@@ -44,11 +44,13 @@ INSTALLED_APPS = (
 INSTALLED_APPS += (
     'south',
     'social_auth',
+    'linaro_django_pagination',
 )
 
 ## apps
 
 INSTALLED_APPS += (
+    'markup',
     'blog',
 )
 
@@ -59,6 +61,19 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'linaro_django_pagination.middleware.PaginationMiddleware'
+)
+
+
+PAGINATION_DEFAULT_PAGINATION = 3
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.request",
+    'social_auth.context_processors.social_auth_by_type_backends',
 )
 
 ROOT_URLCONF = 'shumanr.urls'
@@ -94,7 +109,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
+## MEDIA_URL = '/media/'
 
 # 静态文件目录
 STATICFILES_DIRS = (
@@ -103,7 +118,7 @@ STATICFILES_DIRS = (
 
 ## media
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+## MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # 模版文件目录
 TEMPLATE_DIRS = (

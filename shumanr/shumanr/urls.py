@@ -9,10 +9,10 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 )
 
-media_url = settings.MEDIA_URL.lstrip('/').rstrip('/')
-urlpatterns += patterns('',
-        (r'^%s/(?P<path>.*)$' % media_url, 'django.views.static.serve',
-            {
-                'document_root': settings.MEDIA_ROOT,
-                }),
-)
+## media_url = settings.MEDIA_URL.lstrip('/').rstrip('/')
+## urlpatterns += patterns('',
+##         (r'^%s/(?P<path>.*)$' % media_url, 'django.views.static.serve',
+##             {
+##                 'document_root': settings.MEDIA_ROOT,
+##                 }),
+## )
