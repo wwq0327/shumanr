@@ -41,9 +41,11 @@ INSTALLED_APPS = (
     'south',
     'social_auth',
     'linaro_django_pagination',
+    ## 'guardian',
     ## ------------------------------
     'markup',
     'blog',
+    'profiles',
 )
 
 
@@ -58,7 +60,7 @@ MIDDLEWARE_CLASSES = (
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
-     "django.contrib.auth.context_processors.auth",
+    "django.contrib.auth.context_processors.auth",
     "django.core.context_processors.debug",
     "django.core.context_processors.i18n",
     "django.core.context_processors.media",
@@ -117,3 +119,34 @@ TEMPLATE_DIRS = (
 
 PAGINATION_DEFAULT_PAGINATION = 3
 
+AUTHENTICATION_BACKENDS = (
+    ## 'userena.backends.UserenaAuthenticationBackend',
+    ## 'guardian.backends.ObjectPermissionBackend',
+    ## 'social_auth.backends.contrib.douban.DoubanBackend2',
+    'social_auth.backends.contrib.weibo.WeiboBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+WEIBO_CLIENT_KEY = '1952908459'
+WEIBO_CLIENT_SECRET = 'f66cf7624a0511a9fc56e9ae9fed0f80'
+
+LOGIN_URL          = '/login-form/'
+LOGIN_REDIRECT_URL = '/'
+LOGIN_ERROR_URL    = '/login-error/'
+
+## SOCIAL_AUTH_PIPELINE = (
+##     'social_auth.backends.pipeline.social.social_auth_user',
+##     'social_auth.backends.pipeline.associate.associate_by_email',
+##     #'social_auth.backends.pipeline.misc.save_status_to_session',
+##     'social_auth.backends.pipeline.user.get_username',
+##     'social_auth.backends.pipeline.user.create_user',
+##     'profiles.pipeline.create_profile', # 自己在accounts這個app下建的pipeline.py
+##     'profiles.pipeline.set_guardian_permissions', # 自己在accounts這個app下建的pipeline.py
+##     'social_auth.backends.pipeline.social.associate_user',
+##     'social_auth.backends.pipeline.social.load_extra_data',
+##     'social_auth.backends.pipeline.user.update_user_details',
+##     )
+
+## SOCIAL_AUTH_USER_MODEL = 'profiles.Profile'
+## ANONYMOUS_USER_ID = -1
+## SOCIAL_AUTH_DEFAULT_USERNAME = 'socialauth_user'
